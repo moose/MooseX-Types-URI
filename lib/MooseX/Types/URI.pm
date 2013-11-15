@@ -78,6 +78,8 @@ __END__
 
 This package provides Moose types for fun with L<URI>s.
 
+=for stopwords DWIMier ducktyping
+
 It has slightly DWIMier types than the L<URI> classes have due to
 implementation details, so the types should be more forgiving when ducktyping
 will work anyway (e.g. L<URI::WithBase> does not inherit L<URI>).
@@ -87,7 +89,7 @@ will work anyway (e.g. L<URI::WithBase> does not inherit L<URI>).
 The types are with C<ucfirst> naming convention so that they don't mask the
 L<URI> class.
 
-=type Uri
+=type C<Uri>
 
 Either L<URI> or L<URI::WithBase>
 
@@ -99,17 +101,19 @@ Coerces from C<ScalarRef> via L<URI::data/new>.
 
 Coerces from C<HashRef> using L<URI::FromHash>.
 
-=type DataUri
+=type C<DataUri>
 
 A URI whose scheme is C<data>.
 
 Coerces from C<Str> and C<ScalarRef> via L<URI::data/new>.
 
-=type FileUri
+=type C<FileUri>
 
 A L<URI::file> class type.
 
 Has coercions from C<Str>, L<Path::Class::File> and L<Path::Class::Dir> via L<URI::file/new>
+
+=for stopwords TODO
 
 =head1 TODO
 

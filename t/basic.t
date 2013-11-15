@@ -13,7 +13,7 @@ use Moose::Util::TypeConstraints;
 {
     package Foo;
     use Moose;
-    
+
     package Bar;
     use Moose;
 
