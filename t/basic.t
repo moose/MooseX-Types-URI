@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 
-use Test::More 'no_plan';
+use Test::More;
 
 use ok 'MooseX::Types::URI' => qw(Uri FileUri DataUri);
 
@@ -106,3 +106,5 @@ is( $uri_data->data, "foo", "foo as data" );
 my $uri_data_ref = to_DataUri(\"foo");
 isa_ok( $uri_data_ref, "URI::data" );
 is( $uri_data_ref->data, "foo", "scalar ref foo as data" );
+
+done_testing;
