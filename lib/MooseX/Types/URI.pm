@@ -1,5 +1,3 @@
-#!/usr/bin/perl
-
 package MooseX::Types::URI;
 # ABSTRACT: URI related types and coercions for Moose
 
