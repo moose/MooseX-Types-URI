@@ -81,22 +81,28 @@ ok( !$duri->check($http_str), "not for string" );
 ok( !$duri->check(undef), "not for undef" );
 ok( !$duri->check(Foo->new), "not for object" );
 
-isa_ok( to_Uri($http_str), "URI" );
-is( to_Uri($http_str)->scheme, "http", "scheme" );
+my $uri_http_str = to_Uri($http_str);
+isa_ok( $uri_http_str, "URI" );
+is( $uri_http_str->scheme, "http", "scheme" );
 
-isa_ok( to_Uri("foo"), "URI" );
-is( to_Uri("foo")->path, "foo", "URI" );
-is( to_Uri("foo")->scheme, undef, "URI" );
+my $uri_str = to_Uri("foo");
+isa_ok( $uri_str, "URI" );
+is( $uri_str->path, "foo", "URI" );
+is( $uri_str->scheme, undef, "URI" );
 
-isa_ok( to_Uri({path => "foo"}), "URI" );
-is( to_Uri({path => "foo"})->path, "foo", "URI from HashRef" );
-is( to_Uri({path => "foo"})->scheme, undef, "URI from HashRef" );
+my $uri_hash = to_Uri({path => "foo"});
+isa_ok( $uri_hash, "URI" );
+is( $uri_hash->path, "foo", "URI from HashRef" );
+is( $uri_hash->scheme, undef, "URI from HashRef" );
 
-isa_ok( to_FileUri("foo"), "URI::file" );
-is( to_FileUri("foo")->file, "foo", "filename" );
+my $uri_file = to_FileUri("foo");
+isa_ok( $uri_file, "URI::file" );
+is( $uri_file->file, "foo", "filename" );
 
-isa_ok( to_DataUri("foo"), "URI::data" );
-is( to_DataUri("foo")->data, "foo", "foo as data" );
+my $uri_data = to_DataUri("foo");
+isa_ok( $uri_data, "URI::data" );
+is( $uri_data->data, "foo", "foo as data" );
 
-isa_ok( to_DataUri(\"foo"), "URI::data" );
-is( to_DataUri(\"foo")->data, "foo", "scalar ref foo as data" );
+my $uri_data_ref = to_DataUri(\"foo");
+isa_ok( $uri_data_ref, "URI::data" );
+is( $uri_data_ref->data, "foo", "scalar ref foo as data" );
