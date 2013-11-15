@@ -1,11 +1,10 @@
 #!/usr/bin/perl
 
 package MooseX::Types::URI;
+# ABSTRACT: URI related types and coercions for Moose
 
 use strict;
 use warnings;
-
-our $VERSION = "0.03";
 
 use Scalar::Util qw(blessed);
 
@@ -73,10 +72,6 @@ __END__
 
 =pod
 
-=head1 NAME
-
-MooseX::Types::URI - L<URI> related types and coercions for Moose
-
 =head1 SYNOPSIS
 
 	use MooseX::Types::URI qw(Uri FileUri DataUri);
@@ -125,19 +120,5 @@ Has coercions from C<Str>, L<Path::Class::File> and L<Path::Class::Dir> via L<UR
 =head1 TODO
 
 Think about L<Path::Resource> integration of some sort
-
-=head1 VERSION CONTROL
-
-L<http://github.com/nothingmuch/moosex-types-uri/>
-
-=head1 AUTHOR
-
-Yuval Kogman E<lt>nothingmuch@woobling.orgE<gt>
-
-=head1 COPYRIGHT
-
-	Copyright (c) 2008 Yuval Kogman. All rights reserved
-	This program is free software; you can redistribute
-	it and/or modify it under the same terms as Perl itself.
 
 =cut
