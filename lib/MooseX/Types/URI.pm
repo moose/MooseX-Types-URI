@@ -87,9 +87,7 @@ will work anyway (e.g. L<URI::WithBase> does not inherit L<URI>).
 The types are with C<ucfirst> naming convention so that they don't mask the
 L<URI> class.
 
-=over 4
-
-=item Uri
+=type Uri
 
 Either L<URI> or L<URI::WithBase>
 
@@ -101,19 +99,17 @@ Coerces from C<ScalarRef> via L<URI::data/new>.
 
 Coerces from C<HashRef> using L<URI::FromHash>.
 
-=item DataUri
+=type DataUri
 
 A URI whose scheme is C<data>.
 
 Coerces from C<Str> and C<ScalarRef> via L<URI::data/new>.
 
-=item FileUri
+=type FileUri
 
 A L<URI::file> class type.
 
 Has coercions from C<Str>, L<Path::Class::File> and L<Path::Class::Dir> via L<URI::file/new>
-
-=back
 
 =head1 TODO
 
