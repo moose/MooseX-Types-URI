@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.05      2013-12-17 23:20:10Z
   - fully-qualified type names like MooseX::Types::URI::Uri work again
     (removed in 0.04)
 
