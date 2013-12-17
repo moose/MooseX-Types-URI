@@ -3,16 +3,16 @@ Revision history for {{$dist->name}}
 {{$NEXT}}
 
 0.04      2013-11-15 03:50:07Z
-  * convert to Dist::Zilla, fixing metadata
-  * fix coercion from HashRef (thanks, MORIYA Masaki!) (RT#69476)
+  - convert to Dist::Zilla, fixing metadata
+  - fix coercion from HashRef (thanks, MORIYA Masaki!) (RT#69476)
 
 0.03  2011-11-17 15:40:20Z
-  * Adapt to the new type constraint inlining API in Moose 2.0100
+  - Adapt to the new type constraint inlining API in Moose 2.0100
     (Shawn M Moore).
 
 0.02  2009-05-27 17:49:49Z
-  * Use MooseX::Types type declarators in the type coercions (Daniel Pittman).
-  * Coerce from additional MooseX::Types::Path::Class types (Daniel Pittman).
+  - Use MooseX::Types type declarators in the type coercions (Daniel Pittman).
+  - Coerce from additional MooseX::Types::Path::Class types (Daniel Pittman).
 
 0.01  2009-01-11 04:53:35Z
-  * Initial release.
+  - Initial release.
