@@ -17,8 +17,6 @@ use Moose::Util::TypeConstraints;
 use MooseX::Types::Moose qw{Str ScalarRef HashRef};
 use MooseX::Types::Path::Class qw{File Dir};
 
-use namespace::autoclean;
-
 use MooseX::Types -declare => [qw(Uri _UriWithBase _Uri FileUri DataUri)];
 
 my $uri = Moose::Meta::TypeConstraint->new(

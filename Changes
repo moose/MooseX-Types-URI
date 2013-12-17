@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - fully-qualified type names like MooseX::Types::URI::Uri work again
+    (removed in 0.04)
 
 0.04      2013-11-15 03:50:07Z
   - convert to Dist::Zilla, fixing metadata
