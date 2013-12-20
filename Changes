@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - better fix for fully-qualified type names, made to MooseX::Types directly
 
 0.05      2013-12-17 23:20:10Z
   - fully-qualified type names like MooseX::Types::URI::Uri work again
