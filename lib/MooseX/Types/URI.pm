@@ -8,7 +8,6 @@ use Scalar::Util qw(blessed);
 
 use URI;
 use URI::QueryParam;
-use URI::data;
 use URI::WithBase;
 
 use Moose::Util::TypeConstraints;
