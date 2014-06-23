@@ -7,9 +7,9 @@ use warnings;
 use Scalar::Util qw(blessed);
 
 use URI;
+use URI::QueryParam;
 use URI::data;
 use URI::WithBase;
-use URI::FromHash qw(uri_object);
 
 use Moose::Util::TypeConstraints;
 
@@ -43,7 +43,7 @@ coerce( Uri,
     from File                , via { require URI::file; URI::file::->new($_) },
     from Dir                 , via { require URI::file; URI::file::->new($_) },
     from ScalarRef           , via { my $u = URI->new("data:"); $u->data($$_); $u },
-    from HashRef             , via { uri_object(%$_) },
+    from HashRef             , via { require URI::FromHash; URI::FromHash::uri_object(%$_) },
 );
 
 class_type FileUri, { class => "URI::file", parent => $uri };
