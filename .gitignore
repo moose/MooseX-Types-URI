@@ -1,5 +1,6 @@
+/.ackrc
 /.build/
-!.gitignore
-/MooseX-MethodAttributes-*
-/MooseX-Types-URI-*
-/todo.txt
+!/.gitignore
+/.latest
+/MooseX-Types-URI-*/
+/MooseX-Types-URI-*.tar.gz
