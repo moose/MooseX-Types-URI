@@ -1,5 +1,6 @@
 package MooseX::Types::URI;
 # ABSTRACT: URI related types and coercions for Moose
+# KEYWORDS: moose types constraints coercions uri path web
 
 use strict;
 use warnings;
