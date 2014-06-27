@@ -7,10 +7,8 @@ use warnings;
 use Scalar::Util qw(blessed);
 
 use URI;
-use URI::file;
-use URI::data;
+use URI::QueryParam;
 use URI::WithBase;
-use URI::FromHash qw(uri_object);
 
 use Moose::Util::TypeConstraints;
 
@@ -39,22 +37,22 @@ register_type_constraint($uri);
 
 coerce( Uri,
     from Str                 , via { URI->new($_) },
-    from "Path::Class::File" , via { URI::file->new($_) },
-    from "Path::Class::Dir"  , via { URI::file->new($_) },
-    from File                , via { URI::file->new($_) },
-    from Dir                 , via { URI::file->new($_) },
+    from "Path::Class::File" , via { require URI::file; URI::file::->new($_) },
+    from "Path::Class::Dir"  , via { require URI::file; URI::file::->new($_) },
+    from File                , via { require URI::file; URI::file::->new($_) },
+    from Dir                 , via { require URI::file; URI::file::->new($_) },
     from ScalarRef           , via { my $u = URI->new("data:"); $u->data($$_); $u },
-    from HashRef             , via { uri_object(%$_) },
+    from HashRef             , via { require URI::FromHash; URI::FromHash::uri_object(%$_) },
 );
 
 class_type FileUri, { class => "URI::file", parent => $uri };
 
 coerce( FileUri,
-    from Str                 , via { URI::file->new($_) },
-    from File                , via { URI::file->new($_) },
-    from Dir                 , via { URI::file->new($_) },
-    from "Path::Class::File" , via { URI::file->new($_) },
-    from "Path::Class::Dir"  , via { URI::file->new($_) },
+    from Str                 , via { require URI::file; URI::file::->new($_) },
+    from File                , via { require URI::file; URI::file::->new($_) },
+    from Dir                 , via { require URI::file; URI::file::->new($_) },
+    from "Path::Class::File" , via { require URI::file; URI::file::->new($_) },
+    from "Path::Class::Dir"  , via { require URI::file; URI::file::->new($_) },
 );
 
 class_type DataUri, { class => "URI::data" };
