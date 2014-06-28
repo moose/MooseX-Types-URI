@@ -2,9 +2,13 @@
 
 MooseX::Types::URI - URI related types and coercions for Moose
 
+# VERSION
+
+version 0.06
+
 # SYNOPSIS
 
-	use MooseX::Types::URI qw(Uri FileUri DataUri);
+        use MooseX::Types::URI qw(Uri FileUri DataUri);
 
 # DESCRIPTION
 
@@ -59,6 +63,7 @@ Think about [Path::Resource](https://metacpan.org/pod/Path::Resource) integratio
 - Florian Ragwitz <rafl@debian.org>
 - Karen Etheridge <ether@cpan.org>
 - MORIYA Masaki (gardejo) <moriya@ermitejo.com>
+- Olivier Mengué <dolmen@cpan.org>
 - Shawn M Moore <sartak@gmail.com>
 - Yuval Kogman <nothingmuch@woobling.org>
 

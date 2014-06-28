@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.06      2014-06-28 17:00:56Z
   - better fix for fully-qualified type names, made to MooseX::Types directly
   - load URI::file, URI::data, URI::FromHash dynamically only when used
     (Olivier Mengué).
