@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.07      2014-06-30 19:37:22Z
   - add missing prereq declaration
 
 0.06      2014-06-28 17:00:56Z
