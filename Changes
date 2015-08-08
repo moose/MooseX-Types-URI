@@ -1,6 +1,7 @@
 Revision history for MooseX-Types-URI
 
 {{$NEXT}}
+  - fix duplicate TYPES section in pod
 
 0.07      2014-06-30 19:37:22Z
   - add missing prereq declaration
