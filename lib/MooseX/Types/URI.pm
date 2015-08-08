@@ -12,7 +12,7 @@ use URI;
 use URI::QueryParam;
 use URI::WithBase;
 
-use Moose::Util::TypeConstraints;
+use Moose::Util::TypeConstraints ();
 
 use MooseX::Types::Moose qw{Str ScalarRef HashRef};
 use MooseX::Types::Path::Class qw{File Dir};

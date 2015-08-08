@@ -7,8 +7,7 @@ use ok 'MooseX::Types::URI' => qw(Uri FileUri DataUri);
 
 use URI;
 use URI::WithBase;
-
-use Moose::Util::TypeConstraints;
+use Moose::Util::TypeConstraints 'find_type_constraint';
 
 {
     package Foo;
