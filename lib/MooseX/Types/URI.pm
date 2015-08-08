@@ -1,9 +1,10 @@
+use strict;
+use warnings;
 package MooseX::Types::URI;
 # ABSTRACT: URI related types and coercions for Moose
 # KEYWORDS: moose types constraints coercions uri path web
 
-use strict;
-use warnings;
+our $VERSION = '0.08';
 
 use Scalar::Util qw(blessed);
 
