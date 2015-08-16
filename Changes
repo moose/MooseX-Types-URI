@@ -1,6 +1,6 @@
 Revision history for MooseX-Types-URI
 
-{{$NEXT}}
+0.08      2015-08-16 02:14:11Z
   - fix duplicate TYPES section in pod
 
 0.07      2014-06-30 19:37:22Z
