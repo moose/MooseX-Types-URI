@@ -1,6 +1,8 @@
 Revision history for MooseX-Types-URI
 
 {{$NEXT}}
+  - drop mandatory requirement on MooseX::Types::Path::Class - these coercions
+    are only defined when the module is already loaded
 
 0.08      2015-08-16 02:14:11Z
   - fix duplicate TYPES section in pod

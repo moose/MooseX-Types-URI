@@ -2,6 +2,7 @@ use strict;
 use warnings;
 
 use Test::More 0.88;
+use Test::Needs 'Path::Class', 'MooseX::Types::Path::Class';
 
 use ok 'MooseX::Types::URI' => qw(Uri FileUri);
 

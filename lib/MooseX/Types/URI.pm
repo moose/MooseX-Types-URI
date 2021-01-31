@@ -13,7 +13,6 @@ use URI::QueryParam;
 use URI::WithBase;
 
 use MooseX::Types::Moose qw{Str ScalarRef HashRef};
-use MooseX::Types::Path::Class qw{File Dir};
 
 use MooseX::Types 0.40 -declare => [qw(Uri _UriWithBase _Uri FileUri DataUri)];
 use if MooseX::Types->VERSION >= 0.42, 'namespace::autoclean';
@@ -37,10 +36,13 @@ register_type_constraint($uri);
 
 coerce( Uri,
     from Str                 , via { URI->new($_) },
-    from "Path::Class::File" , via { require URI::file; URI::file::->new($_) },
-    from "Path::Class::Dir"  , via { require URI::file; URI::file::->new($_) },
-    from File                , via { require URI::file; URI::file::->new($_) },
-    from Dir                 , via { require URI::file; URI::file::->new($_) },
+    eval { +require MooseX::Types::Path::Class; 1 }
+      ? (
+        from "Path::Class::File", via { require URI::file; URI::file::->new($_) },
+        from "Path::Class::Dir" , via { require URI::file; URI::file::->new($_) },
+        from MooseX::Types::Path::Class::File() , via { require URI::file; URI::file::->new($_) },
+        from MooseX::Types::Path::Class::Dir()  , via { require URI::file; URI::file::->new($_) },
+      ) : (),
     from ScalarRef           , via { my $u = URI->new("data:"); $u->data($$_); $u },
     from HashRef             , via { require URI::FromHash; URI::FromHash::uri_object(%$_) },
 );
@@ -49,10 +51,13 @@ class_type FileUri, { class => "URI::file", parent => $uri };
 
 coerce( FileUri,
     from Str                 , via { require URI::file; URI::file::->new($_) },
-    from File                , via { require URI::file; URI::file::->new($_) },
-    from Dir                 , via { require URI::file; URI::file::->new($_) },
-    from "Path::Class::File" , via { require URI::file; URI::file::->new($_) },
-    from "Path::Class::Dir"  , via { require URI::file; URI::file::->new($_) },
+    eval { +require MooseX::Types::Path::Class; 1 }
+      ? (
+        from MooseX::Types::Path::Class::File() , via { require URI::file; URI::file::->new($_) },
+        from MooseX::Types::Path::Class::Dir()  , via { require URI::file; URI::file::->new($_) },
+        from "Path::Class::File" , via { require URI::file; URI::file::->new($_) },
+        from "Path::Class::Dir"  , via { require URI::file; URI::file::->new($_) },
+      ) : (),
 );
 
 class_type DataUri, { class => "URI::data" };
@@ -92,7 +97,8 @@ Either L<URI> or L<URI::WithBase>
 
 Coerces from C<Str> via L<URI/new>.
 
-Coerces from L<Path::Class::File> and L<Path::Class::Dir> via L<URI::file/new>.
+Coerces from L<Path::Class::File> and L<Path::Class::Dir> via L<URI::file/new> (but only if
+L<MooseX::Types::Path::Class> is installed)
 
 Coerces from C<ScalarRef> via L<URI::data/new>.
 
@@ -108,7 +114,7 @@ Coerces from C<Str> and C<ScalarRef> via L<URI::data/new>.
 
 A L<URI::file> class type.
 
-Has coercions from C<Str>, L<Path::Class::File> and L<Path::Class::Dir> via L<URI::file/new>
+Has coercions from C<Str> (and optionally L<Path::Class::File> and L<Path::Class::Dir>) via L<URI::file/new>
 
 =for stopwords TODO
 
