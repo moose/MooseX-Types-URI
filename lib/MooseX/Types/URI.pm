@@ -4,7 +4,7 @@ package MooseX::Types::URI;
 # ABSTRACT: URI related types and coercions for Moose
 # KEYWORDS: moose types constraints coercions uri path web
 
-our $VERSION = '0.09';
+our $VERSION = '0.10';
 
 use Scalar::Util qw(blessed);
 
