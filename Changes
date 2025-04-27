@@ -1,6 +1,8 @@
 Revision history for MooseX-Types-URI
 
 {{$NEXT}}
+  - resolve warnings by removing a check for a Moose version that is 14 years
+    old
 
 0.09      2021-03-11 03:20:00Z
   - drop mandatory requirement on MooseX::Types::Path::Class - these coercions
