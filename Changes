@@ -1,5 +1,7 @@
 Revision history for MooseX-Types-URI
 
+{{$NEXT}}
+
 0.10      2025-04-27 15:01:28Z
   - resolve warnings by removing a check for a Moose version that is 14 years
     old
